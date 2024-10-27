@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video and Audio Player</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+            background-image: url("img.jpg");
+            background-size: cover; 
+            background-position: center; 
+        }
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700; /* Bold */
+            font-size: 2.5em; /* Increase size */
+            margin-bottom: 20px;
+            color: #fff; /* White color for better visibility */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+        }
+        h2 {
+            font-weight: 600; /* Semi-bold */
+            color: #333;
+        }
+        video, audio {
+            width: 100%;
+            max-width: 600px; 
+            margin-bottom: 20px;
+        }
+        .poll-section {
+            text-align: left; 
+            margin: 0 auto; 
+            max-width: 300px; 
+        }
+        ul {
+            list-style-type: none; 
+            padding: 0; 
+        }
+        li {
+            margin: 10px 0; 
+        }
+        .like-dislike {
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .like-btn {
+            background-color: #28a745; 
+            color: white;
+        }
+        .dislike-btn {
+            background-color: #dc3545; 
+            color: white;
+        }
+        /* Login Page Styles */
+        .login-container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-container button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Hackex Media</h1>
+
+    <h2>Video Player</h2>
+    <video controls>
+        <source src="C:\Users\hp\Downloads\Classification of Animals __ Types of Animals __ Animal Groups __ Science videos.mp4" type="video/mp4">  
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="like-dislike">
+        <button class="like-btn" onclick="updateLike()">👍 Like <span id="like-count">0</span></button>
+        <button class="dislike-btn" onclick="updateDislike()">👎 Dislike <span id="dislike-count">0</span></button>
+    </div>
+
+    <h2>Audio Player</h2>
+    <audio controls>
+        <source src="song.mp3"> <!-- Replace with your audio file -->
+        Your browser does not support the audio tag.
+    </audio>
+
+    <div class="comments-section">
+        <h2>Comments</h2>
+        <div id="comments"></div>
+        <input type="text" id="comment-input" placeholder="Add a comment...">
+        <button id="add-comment-btn">Post</button>
+    </div>
+
+    <div class="poll-section">
+        <h2>Poll: Feedback</h2>
+        <form id="poll-form">
+            <ul>
+                <li><label><input type="radio" name="color" value="super"> Super</label></li>
+                <li><label><input type="radio" name="color" value="excellent"> Excellent</label></li>
+                <li><label><input type="radio" name="color" value="average"> Average</label></li>
+                <li><label><input type="radio" name="color" value="poor"> Poor</label></li>
+            </ul>
+            <button type="submit">Vote</button>
+        </form>
+        <div id="poll-result"></div>
+   
+
+    <script>
+        let likeCount = 0;
+        let dislikeCount = 0;
+
+        function updateLike() {
+            likeCount++;
+            document.getElementById('like-count').textContent = likeCount;
+        }
+
+        function updateDislike() {
+            dislikeCount++;
+            document.getElementById('dislike-count').textContent = dislikeCount;
+        }
+    </script>
+</body>
+</html>
